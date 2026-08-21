@@ -1,8 +1,8 @@
-# Build and Installation
+# Build from source
 
-This document shows how to build from source and install with the UI.
+This document describes how to compile EgressGuard and what Install does on disk.
 
-### Requirements
+## Requirements
 
 - Windows 10 or 11
 - Administrator rights for Install, Update, and Uninstall (UAC)
@@ -10,9 +10,7 @@ This document shows how to build from source and install with the UI.
 - Visual Studio Build Tools with **Desktop development with C++**
 - WebView2 Runtime
 
-Optional: put `geoip-country.mmdb` in `%ProgramData%\EgressGuard\database\` for country codes. Then restart the EgressGuard Windows service within the GUI.
-
-### Build release binaries
+## Build release binaries
 
 ```powershell
 cargo build --release -p egressguard-service -p egressguard-ui
@@ -20,35 +18,34 @@ cargo build --release -p egressguard-service -p egressguard-ui
 
 Outputs:
 
-- `target\release\EgressGuardService.exe`
-- `target\release\EgressGuard.exe`
+- target\release\EgressGuardService.exe
+- target\release\EgressGuard.exe
 
 ## Install
 
-1. Put both EXEs in one folder
-2. Run `EgressGuard.exe`
-3. Click **Install** on the GUI
+1. Put both EXEs in one folder.
+2. Run EgressGuard.exe.
+3. Click **Install**.
 
-Service name: `EgressGuardService`. It starts at boot. It depends on the Base Filtering Engine (BFE). Install copies the service binary to `C:\Program Files\EgressGuard\`. After a successful install, the UI deletes the copy next to the UI.
-
-A new database leaves Protection off until you turn it on in the UI. If you close the UI, filtering does not stop. If you stop the Windows service while Protection is on, the filters stay. Persistent and boot-time twins stay in BFE. Filtering clears when you turn Protection off, or when you Uninstall.
+Service name: EgressGuardService. It starts at boot. It depends on the Base Filtering Engine (BFE). Install copies the service binary to C:\Program Files\EgressGuard\. After a successful install, the UI deletes the copy next to the UI.
 
 ## Update
 
-1. Put the new EXEs in one folder and run the new UI
-2. Open Settings, then Service
-3. Click **Update**
+1. Put the new EXEs in one folder.
+2. Run the new UI.
+3. Open Settings, then Service.
+4. Click **Update**.
 
-After a successful update, the UI deletes the copy of `EgressGuardService.exe` next to the UI. Rules and data under `%ProgramData%\EgressGuard\` stay.
+After a successful update, the UI deletes the copy of EgressGuardService.exe next to the UI. Rules and data under %ProgramData%\EgressGuard\ stay.
 
 ## Uninstall
 
-1. Open Settings, then Service
-2. Click **Uninstall**
+1. Open Settings, then Service.
+2. Click **Uninstall**.
 
-Uninstall runs an elevated `--uninstall-service` on a service binary. The UI uses the registered SCM path when that file exists. If that path is missing, it uses the copy next to the UI, then `C:\Program Files\EgressGuard\`.
+Uninstall runs an elevated --uninstall-service on a service binary. The UI uses the registered SCM path when that file exists. If that path is missing, it uses the copy next to the UI, then C:\Program Files\EgressGuard\.
 
-The elevated process stops the SCM service when it is present, then removes WFP objects. Only after WFP cleanup succeeds does it delete the SCM service, remove `C:\Program Files\EgressGuard\`, and clear `%ProgramData%\EgressGuard\ipc-token`. It turns off **Start with Windows**. Rules and the database under `%ProgramData%\EgressGuard\` stay.
+The elevated process stops the SCM service when it is present. It then removes WFP objects. Only after WFP cleanup succeeds does it delete the SCM service, remove C:\Program Files\EgressGuard\, and clear %ProgramData%\EgressGuard\ipc-token. It turns off **Start with Windows**. Rules and the database under %ProgramData%\EgressGuard\ stay.
 
 If WFP cleanup fails, Uninstall aborts and leaves the SCM service installed. The service still owns the provider, so you can start it again or retry Uninstall. Do not delete the SCM entry while persistent deny filters remain.
 
@@ -61,7 +58,6 @@ Remove-Item "C:\Program Files\EgressGuard" -Recurse -Force
 
 If SCM is broken but WFP objects remain:
 
-1. Put both EXEs in one folder and run the UI
-2. Open Settings, then Service
-3. Click **Uninstall**, then **Install**
-
+1. Put both EXEs in one folder and run the UI.
+2. Open Settings, then Service.
+3. Click **Uninstall**, then **Install**.
