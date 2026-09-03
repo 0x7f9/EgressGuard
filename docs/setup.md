@@ -5,7 +5,7 @@
 - Windows 10 or 11
 - Administrator rights for Install, Update, and Uninstall (UAC)
 
-To build from source, see [docs/build.md](docs/build.md).
+To build from source, see [build.md](build.md).
 Get the latest beta [release](https://github.com/0x7f9/EgressGuard/releases/).
 
 ### Uninstall
