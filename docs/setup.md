@@ -8,11 +8,6 @@
 To build from source, see [build.md](build.md).
 Get the latest beta [release](https://github.com/0x7f9/EgressGuard/releases/).
 
-### Uninstall
-
-1. Open Settings, then Service.
-2. Click **Uninstall**.
-
 ### Install
 
 1. Keep EgressGuard.exe and EgressGuardService.exe in the same folder.

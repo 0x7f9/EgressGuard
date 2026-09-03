@@ -18,5 +18,4 @@ Outputs:
 - target\release\EgressGuardService.exe
 - target\release\EgressGuard.exe
 
-To setup, see [docs/setup.md](docs/setup.md).
-
+To setup, see [setup.md](setup.md).
