@@ -3,9 +3,8 @@
 ### Requirements
 
 - Windows 10 or 11
-- Current stable Rust (edition 2024). See [rustup](https://rustup.rs/)
+- Current stable [Rust](https://rustup.rs/)
 - Visual Studio Build Tools with **Desktop development with C++**
-- WebView2 Runtime
 
 ### Build release binaries
 
