@@ -5,15 +5,14 @@
 - Windows 10 or 11
 - Administrator rights for Install, Update, and Uninstall (UAC)
 
-Get the latest beta [release](https://github.com/0x7f9/EgressGuard/releases/), or [build from source](build.md).
+<!-- Get the latest beta [release](https://github.com/0x7f9/EgressGuard/releases/), or [build from source](build.md). -->
+[Build from source](build.md).
 
 ### Install
 
 1. Keep EgressGuard.exe and EgressGuardService.exe in the same folder.
 2. Run EgressGuard.exe.
 3. Click **Install**.
-
-Optional country codes. Put geoip-country.mmdb in %ProgramData%\EgressGuard\database\. Then restart the EgressGuard service from Settings, Service, **Restart**. Get the file from [DB-IP Country Lite](https://db-ip.com/db/download/ip-to-country-lite).
 
 ### Update
 
